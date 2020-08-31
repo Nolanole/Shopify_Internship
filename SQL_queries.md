@@ -1,5 +1,5 @@
 ## Question 2
-#### a)How many orders were shipped by Speedy Express in total?
+#### a) How many orders were shipped by Speedy Express in total?
 
 Query: 
 
@@ -16,12 +16,12 @@ Answer:
 
 Query: 
 
-SELECT LastName FROM Employees 
-WHERE EmployeeID = 
-  (SELECT EmployeeID from ORDERS
-  GROUP BY EmployeeID
-  ORDER BY COUNT(OrderID) DESC
-  LIMIT 1);
+    SELECT LastName FROM Employees 
+    WHERE EmployeeID = 
+    (SELECT EmployeeID from ORDERS
+    GROUP BY EmployeeID
+    ORDER BY COUNT(OrderID) DESC
+    LIMIT 1);
 
 Answer:
 
@@ -31,20 +31,20 @@ Peacock
 
 Query:
 
-SELECT ProductName FROM Products
-WHERE ProductID = 
+    SELECT ProductName FROM Products
+    WHERE ProductID = 
 
-  (SELECT ProductID FROM OrderDetails 
-  WHERE OrderID IN
+    (SELECT ProductID FROM OrderDetails 
+    WHERE OrderID IN
 
-    (SELECT OrderID FROM Orders o
-    JOIN Customers c
-    ON o.CustomerID = c.CustomerID
-    WHERE c.Country = 'Germany')
+        (SELECT OrderID FROM Orders o
+        JOIN Customers c
+        ON o.CustomerID = c.CustomerID
+        WHERE c.Country = 'Germany')
 
-  GROUP BY ProductID
-  ORDER BY COUNT(*) DESC
-  LIMIT 1);
+    GROUP BY ProductID
+    ORDER BY COUNT(*) DESC
+    LIMIT 1);
 
 
 Answer:
@@ -55,20 +55,20 @@ Gorgonzola Telino
 ^^^^^^
 This is the query for which product was included in the most number of orders by German customers- To get the product which was ordered in the greatest quantity by German customers, the query and answer would be:
 
-SELECT ProductName FROM Products
-WHERE ProductID = 
+    SELECT ProductName FROM Products
+    WHERE ProductID = 
 
-  (SELECT ProductID FROM OrderDetails 
-  WHERE OrderID IN
+    (SELECT ProductID FROM OrderDetails 
+    WHERE OrderID IN
 
-    (SELECT OrderID FROM Orders o
-    JOIN Customers c
-    ON o.CustomerID = c.CustomerID
-    WHERE c.Country = 'Germany')
+        (SELECT OrderID FROM Orders o
+        JOIN Customers c
+        ON o.CustomerID = c.CustomerID
+        WHERE c.Country = 'Germany')
 
- GROUP BY ProductID
- ORDER BY Quantity DESC
- LIMIT 1);
+    GROUP BY ProductID
+    ORDER BY Quantity DESC
+    LIMIT 1);
 
  Answer: 
  Steeleye Stout
