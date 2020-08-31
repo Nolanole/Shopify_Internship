@@ -3,10 +3,10 @@
 
 Query: 
 
-SELECT COUNT(DISTiNCT OrderID) FROM Orders o
-JOIN Shippers s
-ON o.ShipperID = s.ShipperID
-WHERE s.ShipperName = 'Speedy Express';
+    SELECT COUNT(DISTiNCT OrderID) FROM Orders o
+    JOIN Shippers s
+    ON o.ShipperID = s.ShipperID
+    WHERE s.ShipperName = 'Speedy Express';
 
 Answer:
 
